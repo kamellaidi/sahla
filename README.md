@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sahla 🇩🇿
 
-## Getting Started
+> **La darija, c'est sahla.** — Apprends l'arabe algérien comme on le parle vraiment.
 
-First, run the development server:
+Application web d'apprentissage de la darija algérienne écrite en arabizi.
+
+## Fonctionnalités
+
+- **Dictionnaire** — 2 327 mots en arabizi avec traductions FR/EN, exemples interactifs et conjugaison intégrée
+- **Conjugaison** — 69 verbes × 3 temps (Passé / Présent / Impératif) × 8 pronoms
+- **Grammaire** — 41 règles organisées par thème avec exemples cliquables
+- **Dialogues** — 137 phrases authentiques par thème (Salutations, Transport, Restaurant…)
+- **Guide Arabizi** — Correspondance chiffres → lettres arabes (3=ع, 7=ح, 9=ق…)
+- **InteractivePhrase** — Chaque mot d'un exemple est cliquable → définition en popover
+- **Recherche intelligente** — Insensible aux accents et à la casse (unaccent + stemming français)
+
+## Stack
+
+| Technologie | Rôle |
+|-------------|------|
+| Next.js 14 (App Router) | Framework |
+| TypeScript | Langage |
+| Tailwind CSS v3 | Styles |
+| Supabase (PostgreSQL) | Base de données |
+| Vercel | Déploiement |
+| lucide-react | Icônes |
+
+## Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Copie le fichier d'exemple et remplis tes credentials Supabase :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://ton-projet.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=ta-clé-anon
+SUPABASE_SERVICE_ROLE_KEY=ta-clé-service-role   # pour l'import uniquement
+```
 
-## Learn More
+## Commandes
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run dev        # Serveur de développement
+npm run build      # Build de production
+npm run import     # Import Excel → Supabase
+npm run inspect    # Inspecte les colonnes du fichier Excel
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Import des données
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Place le fichier `dictionnaire_darija_arabizi.xlsx` à la racine
+2. Exécute le script SQL `scripts/supabase-schema.sql` dans le dashboard Supabase
+3. Lance la fonction de recherche intelligente (voir `scripts/supabase-schema.sql`)
+4. Lance `npm run import`
 
-## Deploy on Vercel
+## Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+app/
+├── page.tsx                    # Landing page
+├── dictionnaire/[slug]/        # Page détail mot (composant clé)
+├── conjugaison/[verbId]/       # Tableau conjugaison
+├── grammaire/[theme]/          # Règles par thème
+├── dialogues/[theme]/          # Phrases par thème
+└── guide-arabizi/              # Guide des chiffres arabizi
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+components/
+├── sahla/                      # Composants métier
+│   ├── InteractivePhrase.tsx   # Mots cliquables dans une phrase
+│   ├── ConjugaisonTable.tsx    # Tableau 3 temps × 8 pronoms
+│   └── ...
+├── ui/                         # SearchBar, Badge, Breadcrumbs
+└── layout/                     # Navbar, Footer
+
+hooks/                          # Logique pure (réutilisable React Native)
+lib/                            # types.ts, supabase.ts, utils.ts
+scripts/                        # import-data.ts, inspect-excel.ts
+```
+
+## Déploiement Vercel
+
+Connecte le repo sur [vercel.com](https://vercel.com) et ajoute les variables d'environnement :
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
