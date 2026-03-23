@@ -8,7 +8,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import MotDetailClient from './MotDetailClient';
 
 export const dynamic = 'force-dynamic';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Info } from 'lucide-react';
 
 interface Props {
   params: { slug: string };
@@ -112,18 +112,19 @@ export default async function MotPage({ params }: Props) {
         {/* Main content */}
         <div className="lg:col-span-2">
           {/* En-tête */}
-          <div className="bg-white rounded-2xl border border-gray-100 p-6 mb-6">
+          <div className="bg-white rounded-2xl border border-[#F5EDE3] p-6 mb-6">
             <div className="flex items-start gap-3 flex-wrap mb-3">
-              <h1 className="text-4xl font-black text-[#1B4F72]">{mot.mot_arabizi}</h1>
+              <h1 className="font-display font-arabizi text-4xl font-black text-[#1A1A2E]">{mot.mot_arabizi}</h1>
               <Badge label={mot.categorie} className="mt-2" />
             </div>
-            <p className="text-2xl font-semibold text-gray-800 mb-1">{mot.traduction_fr}</p>
+            <p className="text-2xl font-semibold text-[#1A1A2E] mb-1">{mot.traduction_fr}</p>
             {mot.traduction_en && (
-              <p className="text-gray-400 text-base">{mot.traduction_en}</p>
+              <p className="text-[#6B6B7B] text-base">{mot.traduction_en}</p>
             )}
             {mot.notes && (
-              <p className="text-gray-500 text-sm mt-3 bg-gray-50 rounded-lg px-4 py-2 italic">
-                💡 {mot.notes}
+              <p className="text-[#6B6B7B] text-sm mt-3 bg-[#FBF7F0] rounded-lg px-4 py-2 italic flex items-start gap-2">
+                <Info size={14} className="text-[#C17817] mt-0.5 flex-shrink-0" />
+                {mot.notes}
               </p>
             )}
           </div>
@@ -140,8 +141,8 @@ export default async function MotPage({ params }: Props) {
         <div className="lg:col-span-1 space-y-6">
           {/* Mots de la même catégorie */}
           {categoryMots.length > 0 && (
-            <div className="bg-white rounded-2xl border border-gray-100 p-5">
-              <h2 className="font-bold text-[#1B4F72] mb-4">
+            <div className="bg-white rounded-2xl border border-[#F5EDE3] p-5">
+              <h2 className="font-display font-bold text-[#1A1A2E] mb-4">
                 Autres mots en &quot;{mot.categorie}&quot;
               </h2>
               <div className="space-y-2">
@@ -149,18 +150,18 @@ export default async function MotPage({ params }: Props) {
                   <Link
                     key={m.id}
                     href={`/dictionnaire/${m.slug}`}
-                    className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0 hover:text-[#E65100] transition-colors group"
+                    className="flex items-center justify-between py-2 border-b border-[#F5EDE3] last:border-0 hover:text-[#C17817] transition-colors group"
                   >
-                    <span className="font-semibold text-sm group-hover:text-[#E65100] transition-colors">
+                    <span className="font-arabizi font-semibold text-sm group-hover:text-[#C17817] transition-colors">
                       {m.mot_arabizi}
                     </span>
-                    <span className="text-gray-400 text-xs">{m.traduction_fr}</span>
+                    <span className="text-[#6B6B7B] text-xs">{m.traduction_fr}</span>
                   </Link>
                 ))}
               </div>
               <Link
                 href={`/dictionnaire?categorie=${mot.categorie}`}
-                className="text-xs text-[#E65100] font-medium mt-3 inline-block hover:underline"
+                className="text-xs text-[#C17817] font-medium mt-3 inline-block hover:underline"
               >
                 Voir tous les mots en &quot;{mot.categorie}&quot; →
               </Link>
@@ -170,11 +171,11 @@ export default async function MotPage({ params }: Props) {
       </div>
 
       {/* Navigation prev/next */}
-      <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
+      <div className="flex items-center justify-between mt-10 pt-6 border-t border-[#F5EDE3]">
         {prev ? (
           <Link
             href={`/dictionnaire/${prev.slug}`}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#1B4F72] transition-colors group"
+            className="flex items-center gap-2 text-sm text-[#6B6B7B] hover:text-[#C17817] transition-colors group"
           >
             <ChevronLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
             <span>
@@ -188,7 +189,7 @@ export default async function MotPage({ params }: Props) {
         {next && (
           <Link
             href={`/dictionnaire/${next.slug}`}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#1B4F72] transition-colors group text-right"
+            className="flex items-center gap-2 text-sm text-[#6B6B7B] hover:text-[#C17817] transition-colors group text-right"
           >
             <span>
               <span className="text-gray-400 block text-xs">Suivant</span>

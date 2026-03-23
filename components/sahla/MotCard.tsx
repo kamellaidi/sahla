@@ -11,17 +11,17 @@ export default function MotCard({ mot, compact = false }: MotCardProps) {
   return (
     <Link
       href={`/dictionnaire/${mot.slug}`}
-      className="block bg-white rounded-xl border border-gray-100 hover:border-[#1B4F72]/30 hover:shadow-md transition-all p-4 group"
+      className="block bg-white rounded-xl border border-[#F5EDE3] border-l-4 border-l-transparent hover:border-l-[#C17817] transition-all p-4 group"
     >
       <div className="flex items-start justify-between gap-2 mb-1">
-        <span className="font-bold text-[#1B4F72] group-hover:text-[#E65100] transition-colors text-base">
+        <span className="font-display font-bold text-[#1A1A2E] group-hover:text-[#C17817] transition-colors text-base font-arabizi">
           {mot.mot_arabizi}
         </span>
         <Badge label={mot.categorie} />
       </div>
-      <p className="text-gray-700 text-sm">{mot.traduction_fr}</p>
+      <p className="text-[#1A1A2E] text-sm">{mot.traduction_fr}</p>
       {!compact && mot.traduction_en && (
-        <p className="text-gray-400 text-xs mt-0.5">{mot.traduction_en}</p>
+        <p className="text-[#6B6B7B] text-xs mt-0.5">{mot.traduction_en}</p>
       )}
     </Link>
   );

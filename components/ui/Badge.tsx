@@ -1,4 +1,4 @@
-import { cn, getCategoryColor } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 
 interface BadgeProps {
   label: string | null;
@@ -11,7 +11,7 @@ export default function Badge({ label, className }: BadgeProps) {
     <span
       className={cn(
         'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium capitalize',
-        getCategoryColor(label),
+        'bg-[#F5EDE3] text-[#2D6A4F] border border-[#F5EDE3]',
         className
       )}
     >

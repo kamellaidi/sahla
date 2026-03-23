@@ -15,7 +15,7 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({
-  placeholder = 'Cherche un mot en darija ou en français...',
+  placeholder = 'Cherche un mot en dardja ou en français...',
   compact = false,
   className,
   defaultValue = '',
@@ -55,7 +55,7 @@ export default function SearchBar({
   return (
     <form onSubmit={handleSubmit} className={cn('relative', className)}>
       <Search
-        className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-[#C17817]/60 pointer-events-none"
         size={compact ? 16 : 20}
       />
       <input
@@ -64,19 +64,19 @@ export default function SearchBar({
         onChange={handleChange}
         placeholder={placeholder}
         className={cn(
-          'w-full rounded-xl border border-gray-200 bg-white text-gray-900 placeholder-gray-400',
-          'focus:outline-none focus:ring-2 focus:ring-[#1B4F72] focus:border-transparent',
+          'w-full rounded-xl border border-[#F5EDE3] bg-white text-[#1A1A2E] placeholder-[#6B6B7B]/60',
+          'focus:outline-none focus:ring-2 focus:ring-[#C17817]/40 focus:border-[#C17817]',
           'transition-shadow',
           compact
             ? 'pl-8 pr-8 py-2 text-sm'
-            : 'pl-12 pr-10 py-4 text-base shadow-md'
+            : 'pl-12 pr-10 py-4 text-base shadow-sm'
         )}
       />
       {value && (
         <button
           type="button"
           onClick={handleClear}
-          className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6B7B] hover:text-[#1A1A2E] transition-colors"
           aria-label="Effacer"
         >
           <X size={compact ? 14 : 18} />

@@ -56,8 +56,8 @@ export default async function GrammaireThemePage({ params }: Props) {
       />
 
       <div className="mb-8">
-        <h1 className="text-3xl font-black text-[#1B4F72]">{theme}</h1>
-        <p className="text-gray-500 mt-1">
+        <h1 className="font-display text-3xl font-black text-[#1A1A2E]">{theme}</h1>
+        <p className="text-[#6B6B7B] mt-1">
           {regles.length} règle{regles.length > 1 ? 's' : ''}
         </p>
       </div>
@@ -71,7 +71,7 @@ export default async function GrammaireThemePage({ params }: Props) {
       <div className="mt-10">
         <Link
           href="/grammaire"
-          className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-[#1B4F72] transition-colors"
+          className="inline-flex items-center gap-1 text-sm text-[#6B6B7B] hover:text-[#C17817] transition-colors"
         >
           <ChevronLeft size={16} />
           Retour à tous les thèmes

@@ -39,10 +39,10 @@ export default function DictionnairePage() {
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <BookOpen className="text-[#E65100]" size={28} />
-          <h1 className="text-3xl font-black text-[#1B4F72]">Dictionnaire</h1>
+          <BookOpen className="text-[#C17817]" size={28} />
+          <h1 className="font-display text-3xl font-black text-[#1A1A2E]">Dictionnaire</h1>
         </div>
-        <p className="text-gray-500">
+        <p className="text-[#6B6B7B]">
           {total.toLocaleString('fr')} mots en arabizi algérien avec traductions et exemples
         </p>
       </div>
@@ -50,12 +50,12 @@ export default function DictionnairePage() {
       {/* Search */}
       <div className="mb-6">
         <SearchBar
-          placeholder="Cherche un mot en darija ou en français..."
+          placeholder="Cherche un mot en dardja ou en français..."
           defaultValue={initialQ}
           onSearch={setQuery}
         />
         {isSearching && (
-          <p className="text-sm text-gray-500 mt-2">
+          <p className="text-sm text-[#6B6B7B] mt-2">
             {searchLoading
               ? 'Recherche...'
               : `${searchResults.length} résultat${searchResults.length !== 1 ? 's' : ''} pour « ${query} »`}
@@ -70,8 +70,8 @@ export default function DictionnairePage() {
             onClick={() => setCategorieActive('')}
             className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors ${
               categorieActive === ''
-                ? 'bg-[#1B4F72] text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-[#1A1A2E] text-white'
+                : 'bg-[#F5EDE3] text-[#6B6B7B] hover:bg-[#F5EDE3]/80'
             }`}
           >
             Tous
@@ -82,8 +82,8 @@ export default function DictionnairePage() {
               onClick={() => setCategorieActive(cat)}
               className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-colors capitalize ${
                 categorieActive === cat
-                  ? 'bg-[#1B4F72] text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-[#1A1A2E] text-white'
+                  : 'bg-[#F5EDE3] text-[#6B6B7B] hover:bg-[#F5EDE3]/80'
               }`}
             >
               {cat}
@@ -96,14 +96,14 @@ export default function DictionnairePage() {
       {loading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {Array.from({ length: 12 }).map((_, i) => (
-            <div key={i} className="bg-white rounded-xl border border-gray-100 p-4 animate-pulse">
-              <div className="h-5 bg-gray-100 rounded w-24 mb-2" />
-              <div className="h-4 bg-gray-100 rounded w-40" />
+            <div key={i} className="bg-white rounded-xl border border-[#F5EDE3] p-4 animate-pulse">
+              <div className="h-5 bg-[#F5EDE3] rounded w-24 mb-2" />
+              <div className="h-4 bg-[#F5EDE3] rounded w-40" />
             </div>
           ))}
         </div>
       ) : displayed.length === 0 ? (
-        <div className="text-center py-16 text-gray-400">
+        <div className="text-center py-16 text-[#6B6B7B]">
           <BookOpen size={40} className="mx-auto mb-3 opacity-30" />
           <p className="text-lg font-medium">Aucun mot trouvé</p>
           {isSearching && (
@@ -124,17 +124,17 @@ export default function DictionnairePage() {
           <button
             disabled={page === 1}
             onClick={() => setPage((p) => p - 1)}
-            className="p-2 rounded-lg border border-gray-200 disabled:opacity-40 hover:bg-gray-50 transition-colors"
+            className="p-2 rounded-lg border border-[#F5EDE3] disabled:opacity-40 hover:bg-[#F5EDE3] transition-colors"
           >
             <ChevronLeft size={18} />
           </button>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-[#6B6B7B]">
             Page {page} sur {totalPages}
           </span>
           <button
             disabled={page === totalPages}
             onClick={() => setPage((p) => p + 1)}
-            className="p-2 rounded-lg border border-gray-200 disabled:opacity-40 hover:bg-gray-50 transition-colors"
+            className="p-2 rounded-lg border border-[#F5EDE3] disabled:opacity-40 hover:bg-[#F5EDE3] transition-colors"
           >
             <ChevronRight size={18} />
           </button>

@@ -16,21 +16,21 @@ interface ConjugaisonTableProps {
 const TEMPS_CONFIG = {
   Passé: {
     label: 'Passé',
-    bg: 'bg-[#E8F5E9]',
-    activeBg: 'bg-green-600',
-    border: 'border-green-200',
+    bg: 'bg-[#E8F0E5]',
+    activeBg: 'bg-[#2D6A4F]',
+    border: 'border-[#2D6A4F]/20',
   },
   Présent: {
     label: 'Présent',
-    bg: 'bg-[#E3F2FD]',
-    activeBg: 'bg-blue-600',
-    border: 'border-blue-200',
+    bg: 'bg-[#E5EEF5]',
+    activeBg: 'bg-[#4A90B8]',
+    border: 'border-[#4A90B8]/20',
   },
   Impératif: {
     label: 'Impératif',
-    bg: 'bg-[#FFF3E0]',
-    activeBg: 'bg-orange-500',
-    border: 'border-orange-200',
+    bg: 'bg-[#F5EDE3]',
+    activeBg: 'bg-[#C17817]',
+    border: 'border-[#C17817]/20',
   },
 } as const;
 
@@ -48,9 +48,9 @@ export default function ConjugaisonTable({
   const config = TEMPS_CONFIG[activeTemps];
 
   return (
-    <div className="rounded-xl border border-gray-100 overflow-hidden">
+    <div className="rounded-xl border border-[#F5EDE3] overflow-hidden">
       {/* Tabs */}
-      <div className="flex border-b border-gray-100">
+      <div className="flex border-b border-[#F5EDE3]">
         {(Object.keys(TEMPS_CONFIG) as Temps[]).map((temps) => {
           const active = activeTemps === temps;
           const cfg = TEMPS_CONFIG[temps];
@@ -59,8 +59,8 @@ export default function ConjugaisonTable({
               key={temps}
               onClick={() => setActiveTemps(temps)}
               className={cn(
-                'flex-1 py-2.5 text-sm font-semibold transition-colors',
-                active ? `${cfg.activeBg} text-white` : `${cfg.bg} text-gray-600 hover:opacity-80`
+                'flex-1 py-2.5 text-sm font-semibold transition-colors font-display',
+                active ? `${cfg.activeBg} text-white` : `${cfg.bg} text-[#6B6B7B] hover:opacity-80`
               )}
             >
               {temps}
@@ -77,26 +77,26 @@ export default function ConjugaisonTable({
               const form = conj[pronom];
               return (
                 <tr key={pronom} className="border-b border-white/50 last:border-0">
-                  <td className="px-4 py-2.5 text-gray-500 font-medium w-1/2">
+                  <td className="px-4 py-2.5 text-[#6B6B7B] font-medium w-1/2">
                     {PRONOM_LABELS[pronom]}
                   </td>
-                  <td className="px-4 py-2.5 font-bold text-[#1B4F72]">{form ?? '—'}</td>
+                  <td className="px-4 py-2.5 font-bold text-[#1A1A2E] font-arabizi">{form ?? '—'}</td>
                 </tr>
               );
             })}
           </tbody>
         </table>
       ) : (
-        <div className={`p-6 text-center text-gray-400 text-sm ${config.bg}`}>
+        <div className={`p-6 text-center text-[#6B6B7B] text-sm ${config.bg}`}>
           Pas de conjugaison disponible pour ce temps.
         </div>
       )}
 
       {showLink && (
-        <div className="px-4 py-3 bg-gray-50 border-t border-gray-100">
+        <div className="px-4 py-3 bg-[#FBF7F0] border-t border-[#F5EDE3]">
           <Link
             href={`/conjugaison/${verbId}`}
-            className="text-sm text-[#E65100] font-medium hover:underline"
+            className="text-sm text-[#C17817] font-medium hover:underline"
           >
             Voir la conjugaison complète →
           </Link>

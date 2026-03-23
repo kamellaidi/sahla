@@ -1,8 +1,8 @@
-# Sahla 🇩🇿
+# sahla.dz
 
-> **La darija, c'est sahla.** — Apprends l'arabe algérien comme on le parle vraiment.
+> **La dardja, c'est sahla.** — Apprends l'arabe algérien comme on le parle vraiment.
 
-Application web d'apprentissage de la darija algérienne écrite en arabizi.
+Application web d'apprentissage de la dardja algérienne écrite en arabizi.
 
 ## Fonctionnalités
 
@@ -24,6 +24,19 @@ Application web d'apprentissage de la darija algérienne écrite en arabizi.
 | Supabase (PostgreSQL) | Base de données |
 | Vercel | Déploiement |
 | lucide-react | Icônes |
+
+## Design
+
+| Token | Valeur | Usage |
+|-------|--------|-------|
+| `--primary` | `#C17817` | Amber — couleur principale |
+| `--bg` | `#FBF7F0` | Fond chaud |
+| `--bg-alt` | `#F5EDE3` | Fond alternatif / bordures |
+| `--dark` | `#1A1A2E` | Texte principal / Hero |
+| `--olive` | `#2D6A4F` | Accent vert |
+| `--blue` | `#4A90B8` | Accent bleu méditerranéen |
+
+Polices : **Outfit** (titres) · **DM Sans** (corps) · **JetBrains Mono** (arabizi)
 
 ## Installation
 

@@ -73,7 +73,7 @@ export default function InteractivePhrase({ phrase, lookupMot, className }: Inte
       {/* Popover */}
       {popover && (
         <div
-          className="absolute z-50 bg-white rounded-xl shadow-xl border border-gray-100 p-4 w-64"
+          className="absolute z-50 bg-white rounded-xl shadow-lg border border-[#F5EDE3] p-4 w-64"
           style={{
             top: '100%',
             left: 0,
@@ -81,7 +81,7 @@ export default function InteractivePhrase({ phrase, lookupMot, className }: Inte
           }}
         >
           <div className="flex items-start justify-between gap-2 mb-1">
-            <span className="text-lg font-bold text-[#1B4F72]">{popover.mot.mot_arabizi}</span>
+            <span className="font-display font-arabizi text-lg font-bold text-[#1A1A2E]">{popover.mot.mot_arabizi}</span>
             {popover.mot.categorie && (
               <span
                 className={`text-xs px-2 py-0.5 rounded-full font-medium capitalize flex-shrink-0 ${getCategoryColor(popover.mot.categorie)}`}
@@ -90,13 +90,13 @@ export default function InteractivePhrase({ phrase, lookupMot, className }: Inte
               </span>
             )}
           </div>
-          <p className="text-gray-800 font-medium mb-1">{popover.mot.traduction_fr}</p>
+          <p className="text-[#1A1A2E] font-medium mb-1">{popover.mot.traduction_fr}</p>
           {popover.mot.traduction_en && (
-            <p className="text-gray-400 text-xs mb-2">{popover.mot.traduction_en}</p>
+            <p className="text-[#6B6B7B] text-xs mb-2">{popover.mot.traduction_en}</p>
           )}
           <Link
             href={`/dictionnaire/${popover.mot.slug}`}
-            className="text-[#E65100] text-sm font-medium hover:underline"
+            className="text-[#C17817] text-sm font-medium hover:underline"
             onClick={() => setPopover(null)}
           >
             Voir ce mot →

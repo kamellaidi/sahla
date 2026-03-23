@@ -1,12 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --color-primary: #1B4F72;
-  --color-accent: #E65100;
+  --primary: #C17817;
+  --primary-dark: #A06412;
+  --bg: #FBF7F0;
+  --bg-alt: #F5EDE3;
+  --dark: #1A1A2E;
+  --olive: #2D6A4F;
+  --blue: #4A90B8;
+  --text: #1A1A2E;
+  --text-secondary: #6B6B7B;
+  --border: #F5EDE3;
 }
 
 * {
@@ -20,9 +28,13 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #FAFAFA;
-  color: #1a1a1a;
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
 }
 
 @layer utilities {
@@ -37,15 +49,19 @@ body {
   /* Mot interactif dans une phrase */
   .word-interactive {
     text-decoration: underline;
-    text-decoration-style: dotted;
-    text-decoration-color: #E65100;
+    text-decoration-style: dashed;
+    text-decoration-color: #C17817;
     text-underline-offset: 3px;
     cursor: pointer;
     transition: color 0.15s;
   }
 
   .word-interactive:hover {
-    color: #E65100;
+    color: #C17817;
+  }
+
+  .font-arabizi {
+    font-family: 'JetBrains Mono', monospace;
   }
 }
 

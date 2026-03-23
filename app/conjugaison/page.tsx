@@ -23,11 +23,11 @@ export default async function ConjugaisonPage() {
   return (
     <div className="max-container padding-container py-8">
       <div className="flex items-center gap-3 mb-2">
-        <GitBranch className="text-[#E65100]" size={28} />
-        <h1 className="text-3xl font-black text-[#1B4F72]">Conjugaison</h1>
+        <GitBranch className="text-[#C17817]" size={28} />
+        <h1 className="font-display text-3xl font-black text-[#1A1A2E]">Conjugaison</h1>
       </div>
-      <p className="text-gray-500 mb-8">
-        {verbes.length} verbes conjugués en darija — passé, présent et impératif
+      <p className="text-[#6B6B7B] mb-8">
+        {verbes.length} verbes conjugués en dardja — passé, présent et impératif
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -35,15 +35,15 @@ export default async function ConjugaisonPage() {
           <Link
             key={verbe.verb_id}
             href={`/conjugaison/${verbe.verb_id}`}
-            className="bg-white rounded-xl border border-gray-100 hover:border-[#1B4F72]/30 hover:shadow-md transition-all p-4 group"
+            className="bg-white rounded-xl border border-[#F5EDE3] border-l-4 border-l-transparent hover:border-l-[#C17817] transition-all p-4 group"
           >
             <div className="flex items-center justify-between mb-1">
-              <span className="font-bold text-[#1B4F72] group-hover:text-[#E65100] transition-colors text-base">
+              <span className="font-arabizi font-bold text-[#1A1A2E] group-hover:text-[#C17817] transition-colors text-base">
                 {verbe.verbe_arabizi}
               </span>
-              <span className="text-xs text-gray-300 font-mono">{verbe.verb_id}</span>
+              <span className="text-xs text-[#6B6B7B]/50 font-mono">{verbe.verb_id}</span>
             </div>
-            <p className="text-gray-600 text-sm">{verbe.sens_fr}</p>
+            <p className="text-[#6B6B7B] text-sm">{verbe.sens_fr}</p>
           </Link>
         ))}
       </div>

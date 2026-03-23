@@ -17,13 +17,13 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#FBF7F0] border-b border-[#F5EDE3]">
       <div className="max-container padding-container">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 select-none">
-            <span className="text-2xl font-black text-[#1B4F72]">
-              sah<span className="text-[#E65100]">·</span>la
+            <span className="font-display text-2xl font-black text-[#1A1A2E]">
+              sahla<span className="text-[#C17817]">.dz</span>
             </span>
           </Link>
 
@@ -33,7 +33,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-[#1B4F72] transition-colors"
+                className="text-sm font-medium text-[#6B6B7B] hover:text-[#C17817] transition-colors"
               >
                 {link.label}
               </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="lg:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-md text-[#6B6B7B] hover:bg-[#F5EDE3]"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
           >
@@ -57,7 +57,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <div className="lg:hidden pb-4 pt-2 border-t border-gray-100">
+          <div className="lg:hidden pb-4 pt-2 border-t border-[#F5EDE3]">
             <div className="mb-3">
               <SearchBar placeholder="Cherche un mot..." />
             </div>
@@ -67,7 +67,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-[#1B4F72] transition-colors"
+                  className="px-3 py-2 rounded-md text-sm font-medium text-[#1A1A2E] hover:bg-[#F5EDE3] hover:text-[#C17817] transition-colors"
                 >
                   {link.label}
                 </Link>

@@ -32,9 +32,9 @@ export async function generateStaticParams() {
 }
 
 const TEMPS_CONFIG = {
-  Passé: { bg: 'bg-[#E8F5E9]', header: 'bg-green-600 text-white', border: 'border-green-200' },
-  Présent: { bg: 'bg-[#E3F2FD]', header: 'bg-blue-600 text-white', border: 'border-blue-200' },
-  Impératif: { bg: 'bg-[#FFF3E0]', header: 'bg-orange-500 text-white', border: 'border-orange-200' },
+  Passé: { bg: 'bg-[#E8F0E5]', header: 'bg-[#2D6A4F] text-white', border: 'border-[#2D6A4F]/20' },
+  Présent: { bg: 'bg-[#E5EEF5]', header: 'bg-[#4A90B8] text-white', border: 'border-[#4A90B8]/20' },
+  Impératif: { bg: 'bg-[#F5EDE3]', header: 'bg-[#C17817] text-white', border: 'border-[#C17817]/20' },
 } as const;
 
 type Temps = keyof typeof TEMPS_CONFIG;
@@ -67,9 +67,9 @@ export default async function ConjugaisonVerbePage({ params }: Props) {
       />
 
       <div className="mb-8">
-        <h1 className="text-4xl font-black text-[#1B4F72] mb-1">{verbe.verbe_arabizi}</h1>
-        <p className="text-xl text-gray-600">{verbe.sens_fr}</p>
-        <p className="text-gray-400 text-sm mt-1 font-mono">{verbe.verb_id}</p>
+        <h1 className="font-display font-arabizi text-4xl font-black text-[#1A1A2E] mb-1">{verbe.verbe_arabizi}</h1>
+        <p className="text-xl text-[#6B6B7B]">{verbe.sens_fr}</p>
+        <p className="text-[#6B6B7B]/50 text-sm mt-1 font-mono">{verbe.verb_id}</p>
       </div>
 
       {/* Tableaux de conjugaison */}
@@ -83,16 +83,16 @@ export default async function ConjugaisonVerbePage({ params }: Props) {
               className={`rounded-2xl border ${cfg.border} overflow-hidden`}
             >
               <div className={`px-5 py-3 ${cfg.header}`}>
-                <h2 className="font-bold text-base">{temps}</h2>
+                <h2 className="font-display font-bold text-base">{temps}</h2>
               </div>
               <table className={`w-full text-sm ${cfg.bg}`}>
                 <tbody>
                   {PRONOMS.map((pronom) => (
                     <tr key={pronom} className="border-b border-white/60 last:border-0">
-                      <td className="px-4 py-2.5 text-gray-500 text-xs font-medium">
-                        {pronom}
+                      <td className="px-4 py-2.5 text-[#6B6B7B] text-xs font-medium">
+                        {PRONOM_LABELS[pronom]}
                       </td>
-                      <td className="px-4 py-2.5 font-bold text-[#1B4F72] text-right">
+                      <td className="px-4 py-2.5 font-bold text-[#1A1A2E] text-right font-arabizi">
                         {conj?.[pronom] ?? '—'}
                       </td>
                     </tr>
@@ -106,17 +106,17 @@ export default async function ConjugaisonVerbePage({ params }: Props) {
 
       {/* Mots du dictionnaire liés à ce verbe */}
       {motLies && motLies.length > 0 && (
-        <div className="bg-white rounded-2xl border border-gray-100 p-6">
-          <h2 className="font-bold text-[#1B4F72] mb-4">Dans le dictionnaire</h2>
+        <div className="bg-white rounded-2xl border border-[#F5EDE3] p-6">
+          <h2 className="font-display font-bold text-[#1A1A2E] mb-4">Dans le dictionnaire</h2>
           <div className="flex flex-wrap gap-2">
             {motLies.map((m) => (
               <Link
                 key={m.id}
                 href={`/dictionnaire/${m.slug}`}
-                className="inline-flex items-center gap-2 bg-gray-50 hover:bg-blue-50 border border-gray-100 hover:border-blue-200 rounded-lg px-3 py-2 text-sm transition-colors"
+                className="inline-flex items-center gap-2 bg-[#FBF7F0] hover:bg-[#F5EDE3] border border-[#F5EDE3] rounded-lg px-3 py-2 text-sm transition-colors"
               >
-                <span className="font-semibold text-[#1B4F72]">{m.mot_arabizi}</span>
-                <span className="text-gray-400 text-xs">— {m.traduction_fr}</span>
+                <span className="font-arabizi font-semibold text-[#1A1A2E]">{m.mot_arabizi}</span>
+                <span className="text-[#6B6B7B] text-xs">— {m.traduction_fr}</span>
               </Link>
             ))}
           </div>
@@ -126,7 +126,7 @@ export default async function ConjugaisonVerbePage({ params }: Props) {
       <div className="mt-8">
         <Link
           href="/conjugaison"
-          className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-[#1B4F72] transition-colors"
+          className="inline-flex items-center gap-1 text-sm text-[#6B6B7B] hover:text-[#C17817] transition-colors"
         >
           <ChevronLeft size={16} />
           Retour à tous les verbes

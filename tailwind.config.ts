@@ -10,19 +10,25 @@ const config: Config = {
     extend: {
       colors: {
         sahla: {
-          blue: '#1B4F72',
-          orange: '#E65100',
-          bg: '#FAFAFA',
-          bgAlt: '#F8F9F9',
+          primary: '#C17817',
+          bg: '#FBF7F0',
+          bgAlt: '#F5EDE3',
+          dark: '#1A1A2E',
+          olive: '#2D6A4F',
+          blue: '#4A90B8',
+          text: '#1A1A2E',
+          textSecondary: '#6B6B7B',
         },
         conj: {
-          passe: '#E8F5E9',
-          present: '#E3F2FD',
-          imperatif: '#FFF3E0',
+          passe: '#E8F0E5',
+          present: '#E5EEF5',
+          imperatif: '#F5EDE3',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['DM Sans', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
       },
     },
   },
